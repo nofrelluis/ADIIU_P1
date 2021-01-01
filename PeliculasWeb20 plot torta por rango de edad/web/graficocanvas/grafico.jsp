@@ -15,6 +15,7 @@
         <script type="text/javascript" charset="utf-8" src="puntosporidioma_1.js">
         </script>
     </head>
+    
     <body onload="dibujacion()">
         <%
             String lloc = request.getServletContext().getContextPath();

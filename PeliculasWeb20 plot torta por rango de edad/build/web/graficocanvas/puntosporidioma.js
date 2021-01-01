@@ -17,7 +17,7 @@ function pintadatos() {
 
 
 // fopen importada
-
+//Caramelo
 function importXML()
 {
   var xmlhttp = new XMLHttpRequest();
