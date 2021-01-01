@@ -15,26 +15,26 @@ function pinta() {
         res = JSON.parse(result);
         //console.log(res);
         //$("#puntosporidioma").html(a.cantidadporfranja);
-        a = res.cantidadporfranja
+        a = res.cantidadporfranja;
     }});
-    $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=11-25",
+    $.ajax({url:"http://localhost:8080/PeliculasWeb20/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=11-25",
     success: function(result){
         res = JSON.parse(result);
-        b = res.cantidadporfranja
+        b = res.cantidadporfranja;
     }});
-    $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=26-50",
+    $.ajax({url:"http://localhost:8080/PeliculasWeb20/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=26-50",
     success: function(result){
         res = JSON.parse(result);
-        c = res.cantidadporfranja
+        c = res.cantidadporfranja;
     }});
-    $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=51-200",
+    $.ajax({url:"http://localhost:8080/PeliculasWeb20/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=51-200",
     success: function(result){
         res = JSON.parse(result);
-        d = res.cantidadporfranja
+        d = res.cantidadporfranja;
     }});
 
     var canvas = document.getElementById('canvas');
-    pintarTorta(a,b,c,d,canvas,0,0);
+    pintarTorta(a,b,c,d,canvas,px,py);
     
 }
 
@@ -80,6 +80,7 @@ function createTable()
         var c;
         var d;
         var contador = 0;
+        console.log(contador);
         $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=0-10",
         success: function(result){
             res = JSON.parse(result);
@@ -88,7 +89,7 @@ function createTable()
             a = res.cantidadporfranja;
             contador++;
             if(contador==4){
-                pintarTorta(a,b,c,d,contenido,0,0);
+                pintarTorta(a,b,c,d,contenido,px,py);
             }
             console.log(contador);
         }});
@@ -98,7 +99,7 @@ function createTable()
             b = res.cantidadporfranja;
             contador++;
             if(contador==4){
-                pintarTorta(a,b,c,d,contenido,0,0);
+                pintarTorta(a,b,c,d,contenido,px,py);
             }
             console.log(contador);
         }});
@@ -108,7 +109,7 @@ function createTable()
             c = res.cantidadporfranja;
             contador++;
             if(contador==4){
-                pintarTorta(a,b,c,d,contenido,0,0);
+                pintarTorta(a,b,c,d,contenido,px,py);
             }
             console.log(contador);
         }});
