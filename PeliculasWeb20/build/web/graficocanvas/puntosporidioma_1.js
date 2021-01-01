@@ -1,41 +1,39 @@
 function dibujacion() {
-    console.log("albaricoque");
     createTable();
-    console.log("acabó");
 }
 
 function pinta() {
-    console.log("segundo albaricoque");
-    var a;
-    var b;
-    var c;
-    var d;
-    $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=0-10",
-    success: function(result){
-        res = JSON.parse(result);
-        //console.log(res);
-        //$("#puntosporidioma").html(a.cantidadporfranja);
-        a = res.cantidadporfranja;
-    }});
-    $.ajax({url:"http://localhost:8080/PeliculasWeb20/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=11-25",
-    success: function(result){
-        res = JSON.parse(result);
-        b = res.cantidadporfranja;
-    }});
-    $.ajax({url:"http://localhost:8080/PeliculasWeb20/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=26-50",
-    success: function(result){
-        res = JSON.parse(result);
-        c = res.cantidadporfranja;
-    }});
-    $.ajax({url:"http://localhost:8080/PeliculasWeb20/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=51-200",
-    success: function(result){
-        res = JSON.parse(result);
-        d = res.cantidadporfranja;
-    }});
-
-    var canvas = document.getElementById('canvas');
-    pintarTorta(a,b,c,d,canvas,px,py);
-    
+    /*console.log("segundo albaricoque");
+     var a;
+     var b;
+     var c;
+     var d;
+     $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=0-10",
+     success: function(result){
+     res = JSON.parse(result);
+     //console.log(res);
+     //$("#puntosporidioma").html(a.cantidadporfranja);
+     a = res.cantidadporfranja;
+     }});
+     $.ajax({url:"http://localhost:8080/PeliculasWeb20/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=11-25",
+     success: function(result){
+     res = JSON.parse(result);
+     b = res.cantidadporfranja;
+     }});
+     $.ajax({url:"http://localhost:8080/PeliculasWeb20/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=26-50",
+     success: function(result){
+     res = JSON.parse(result);
+     c = res.cantidadporfranja;
+     }});
+     $.ajax({url:"http://localhost:8080/PeliculasWeb20/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=51-200",
+     success: function(result){
+     res = JSON.parse(result);
+     d = res.cantidadporfranja;
+     }});
+     
+     var canvas = document.getElementById('canvas');
+     pintarTorta(a,b,c,d,canvas,px,py);
+     */
 }
 
 
@@ -43,140 +41,144 @@ function pinta() {
 
 function createTable()
 {
-    
-   
+
+
 
     var ctx = document.getElementById('canvas');
     var width = ctx.width;
     var height = ctx.height;
     var contenido = ctx.getContext('2d');
-    var fondo = new Image();
-    fondo.src = 'images/utmbalears.png';
-    var puntoes = new Image();
-    puntoes.src = 'images/bollaes.png';
-    var puntoca = new Image();
-    puntoca.src = 'images/bollaca.png';
-    var puntoen = new Image();
-    puntoen.src = 'images/bollaen.png';
-    var puntode = new Image();
-    puntode.src = 'images/bollade.png';
-    var leyenda = new Image();
-    leyenda.src = 'images/leyenda-idiomas-por-gps.png';
-    fondo.onload = function () {
-        //*******************************************
-        //*******************************************
-        //****** mapa de puntos
-        //*******************************************
-        //*******************************************
-        var px = width / 1153.0;   //porcentaje x
-        var py = height / 696.0;   //porcentaje y
-        contenido.drawImage(fondo, 0, 0, width, height);
-        contenido.drawImage(leyenda, 980 * px, 512 * py, 137 * px, 148 * py);
-        var col;
-        
-        
-        var a;
-        var b;
-        var c;
-        var d;
-        var contador = 0;
-        console.log(contador);
-        $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=0-10",
-        success: function(result){
+
+    var a;
+    var b;
+    var c;
+    var d;
+    var contador = 0;
+    console.log(contador);
+    /*$.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=0-10",
+        success: function (result) {
             res = JSON.parse(result);
             //console.log(res);
             //$("#puntosporidioma").html(a.cantidadporfranja);
             a = res.cantidadporfranja;
             contador++;
-            if(contador==4){
-                pintarTorta(a,b,c,d,contenido,px,py);
+            if (contador == 4) {
+                pintarTorta(a, b, c, d, contenido);
             }
             console.log(contador);
         }});
-        $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=11-25",
-        success: function(result){
+    $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=11-25",
+        success: function (result) {
             res = JSON.parse(result);
             b = res.cantidadporfranja;
             contador++;
-            if(contador==4){
-                pintarTorta(a,b,c,d,contenido,px,py);
+            if (contador == 4) {
+                pintarTorta(a, b, c, d, contenido);
             }
             console.log(contador);
         }});
-        $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=26-50",
-        success: function(result){
+    $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=26-50",
+        success: function (result) {
             res = JSON.parse(result);
             c = res.cantidadporfranja;
             contador++;
-            if(contador==4){
-                pintarTorta(a,b,c,d,contenido,px,py);
+            if (contador == 4) {
+                pintarTorta(a, b, c, d, contenido);
             }
             console.log(contador);
         }});
-        $.ajax({url:"http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=51-200",
-        success: function(result){
+    $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=51-200",
+        success: function (result) {
             res = JSON.parse(result);
             d = res.cantidadporfranja;
             contador++;
-            if(contador==4){
-                pintarTorta(a,b,c,d,contenido,px,py);
+            if (contador == 4) {
+                pintarTorta(a, b, c, d, contenido);
             }
             console.log(contador);
+        }});*/
+    console.log(a);
+    pintarTorta(1, 1, 1, 1, contenido);
+
+    //pintarBarras();
+    
+    $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=todosporedad&par=30",
+        success: function (result) {
+            res = JSON.parse(result);
+            pintarBarras(res);
+            console.log(contador);
         }});
-        console.log(a);
-        //var canvas = document.getElementById('canvas');
-        
-        
-        
-        
-        
-        //*******************************************
-        //*******************************************
-        //****** torta de porcentajes
-        //*******************************************
-        //*******************************************
-        //pintarTorta(nes, nca, nde, nen, contenido, px, py);
-    }
+    
 
-    function plasmar(lat, lon, punto, contenido, px, py) {
-        var canv = document.getElementById('nuestroCanvas');
-        var y = ((40.173550 - lat) / 0.002361) * px;
-        var x = ((lon - 1.000099) / 0.003075) * py;
-        contenido.drawImage(punto, x, y, 12 * px, 11 * py);
-    }
 
-    function pintarTorta(nes, nca, nde, nen, contenido, px, py) {
+    function pintarTorta(nes, nca, nde, nen, contenido) {
         var total = nes + nca + nde + nen;
-        var pes = (1.0 * nes) / total;  //porcentaje de español entre 0 - 1
+        var pes = (1.0 * nes) / total;
         var ang = 0;
         var rad = 50;
-        var cx = 880;
-        var cy = 588;
+        var cx = 100;
+        var cy = 100;
         contenido.beginPath();
-        contenido.arc(cx * px, cy * py, rad * px, ang, 2 * pes * Math.PI);
+        contenido.arc(cx, cy, rad, ang, 2 * pes * Math.PI);
         contenido.strokeStyle = "#f54c4c";
-        contenido.lineWidth = rad * px;
+        contenido.lineWidth = rad * 2;
         contenido.stroke();
         ang = ang + (2 * pes * Math.PI);
         var pca = (1.0 * nca) / total;
         contenido.beginPath();
-        contenido.arc(cx * px, cy * py, rad * px, ang, ang + (2 * pca * Math.PI));
+        contenido.arc(cx, cy, rad, ang, ang + (2 * pca * Math.PI));
         contenido.strokeStyle = "#f3f01f";
-        contenido.lineWidth = rad * px;
+        contenido.lineWidth = rad * 2;
         contenido.stroke();
         ang = ang + (2 * pca * Math.PI);
         var pen = (1.0 * nen) / total;
         contenido.beginPath();
-        contenido.arc(cx * px, cy * py, rad * px, ang, ang + (2 * pen * Math.PI));
+        contenido.arc(cx, cy, rad, ang, ang + (2 * pen * Math.PI));
         contenido.strokeStyle = "#2f9ef4";
-        contenido.lineWidth = rad * px;
+        contenido.lineWidth = rad * 2;
         contenido.stroke();
         ang = ang + (2 * pen * Math.PI);
         var ped = (1.0 * nde) / total;
         contenido.beginPath();
-        contenido.arc(cx * px, cy * py, rad * px, ang, ang + (2 * ped * Math.PI));
+        contenido.arc(cx, cy, rad, ang, ang + (2 * ped * Math.PI));
         contenido.strokeStyle = "#2ff434";
-        contenido.lineWidth = rad * px;
+        contenido.lineWidth = rad * 2;
+        contenido.stroke();
+    }
+    
+    function pintarBarras(actores){
+        var cantidad = 1;
+        var x = 300;
+        var y = 200;
+        var w = 30;
+        var sep = 20;
+        //var actor = actores.todosporedad[1].vals[1];
+        console.log(actores);
+        contenido.beginPath();
+        contenido.scale(1,-1);
+        for(var i = 0; i < cantidad; i++){
+            //contenido.beginPath();
+            var valor = actores.todosporedad[i].vals[0];
+            console.log(valor);
+            valor.replace(" ", "_")
+            
+            var url = "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=numpelisdepersona&par=Devon_Alan";// + valor;
+            $.ajax({url: url,
+                success: function (result) {
+                    console.log(result);
+                    res = JSON.parse(result);
+                    console.log(res);
+                }});
+            
+            
+            
+            
+            
+            
+            contenido.fillRect(x + (w + sep) * i,-y,w,(valor - 1900));
+            //contenido.stroke();
+        }
+        
         contenido.stroke();
     }
 }

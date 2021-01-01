@@ -107,7 +107,10 @@ public class bdpeliculas extends HttpServlet {
         } else if (operacion.contentEquals("pelisdepersona")) {
             DBActionsPersonaPeli dbapp = new DBActionsPersonaPeli();
             res = dbapp.getPelisDePersona(par);
-        } else if (operacion.contentEquals("personasdepeli")) {
+        } else if (operacion.contentEquals("numpelisdepersona")) {
+            DBActionsPersonaPeli dbapp = new DBActionsPersonaPeli();
+            res = dbapp.getNumPelisDePersona(par);
+        }  else if (operacion.contentEquals("personasdepeli")) {
             DBActionsPersonaPeli dbapp = new DBActionsPersonaPeli();
             res = dbapp.getPersonasDePeli(par);
         } else if (operacion.contentEquals("pelisderating")) {

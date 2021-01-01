@@ -17,7 +17,7 @@ public class DBActionsNameBasics {
 
     public String getTodosPorEdad(String par) {
         DBConnection con = new DBConnection();
-        String res = "{'todosporedad':[";
+        String res = "{\"todosporedad\":[";
         try {
             con.open();
             Statement st = con.getConection().createStatement();
@@ -35,7 +35,7 @@ public class DBActionsNameBasics {
                 }
                 if ((muere - nace) == (Integer.parseInt(par))) {
                     aux = "";
-                    aux = aux + "{'vals':['" + nom + "'," + nace + "," + muere + "]}";
+                    aux = aux + "{\"vals\":[\"" + nom + "\"," + nace + "," + muere + "]}";
                     res = res + aux + ",";
                 }
             }
@@ -51,7 +51,7 @@ public class DBActionsNameBasics {
 
     public String getCantidadPorEdad(String par) {
         DBConnection con = new DBConnection();
-        String res = "{'catidadporedad':";
+        String res = "{\"catidadporedad\":";
         try {
             con.open();
             Statement st = con.getConection().createStatement();
