@@ -55,7 +55,7 @@ public class DBActionsPersonaPeli {
         return res;
     }
     
-    public String getNumPelisDePersona(String par) {
+    /*public String getNumPelisDePersona(String par) {
         DBConnection con = new DBConnection();
         String res = "{\"pelisdepersona\":"; //[";
         try {
@@ -65,30 +65,29 @@ public class DBActionsPersonaPeli {
             st2 = con.getConection().createStatement();
             //st3 = con.getConection().createStatement();
                 
-            String sqlq = "select * from namebasics where primaryname like '" + par.replace("_", " ") + "';";
+            String sqlq = "select * from namebasics where primaryname like '" + par + "';";
             ResultSet rs = st1.executeQuery(sqlq);
             //String aux;
             String codnom;
             //String codpeli;
             //String nompeli;
-            if (rs.first()) {
+            if (rs.next()) {
                 
                 codnom = rs.getString("nconst");
                 sqlq = "select count(*) as total from personapeli where nconst like '" + codnom + "';";
                 ResultSet rs2 = st2.executeQuery(sqlq);
-                //res = "{\"pelisdepersona\":";
+                
                 res = res + rs2.getInt("total") + "}";
                 
             }
-            //res = res.substring(0, res.length() - 1);   // quito la última coma
-            //res = res + "]}";
+            
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
             con.close();
         }
         return res;
-    }
+    }*/
 
     public String getPersonasDePeli(String par) {
         DBConnection con = new DBConnection();

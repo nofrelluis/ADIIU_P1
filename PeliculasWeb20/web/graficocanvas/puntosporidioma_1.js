@@ -147,38 +147,59 @@ function createTable()
     }
     
     function pintarBarras(actores){
-        var cantidad = 1;
+        var cantidad = 10;
         var x = 300;
         var y = 200;
         var w = 30;
         var sep = 20;
+        
+        var data = [];
         //var actor = actores.todosporedad[1].vals[1];
         console.log(actores);
         contenido.beginPath();
         contenido.scale(1,-1);
+        var num = 0;
         for(var i = 0; i < cantidad; i++){
             //contenido.beginPath();
             var valor = actores.todosporedad[i].vals[0];
             console.log(valor);
             valor.replace(" ", "_")
             
-            var url = "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=numpelisdepersona&par=Devon_Alan";// + valor;
+            var url = "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=pelisdepersona&par=" + valor;
             $.ajax({url: url,
                 success: function (result) {
                     console.log(result);
                     res = JSON.parse(result);
                     console.log(res);
+                    var count = Object.keys(res.pelisdepersona).length;
+                    console.log(count);
+                    data.push(count);
+                    //contenido.fillRect(x + (w + sep) * i,-y,w,(count * 10));
+                    
+                    num++;
+                    if(num === cantidad){
+                    pintar(data);
+                    }
                 }});
             
             
-            
-            
-            
-            
-            contenido.fillRect(x + (w + sep) * i,-y,w,(valor - 1900));
-            //contenido.stroke();
         }
         
+        //contenido.stroke();
+    }
+    
+    function pintar(array){
+        var x = 300;
+        var y = 200;
+        var w = 30;
+        var sep = 20;
+        
+        contenido.beginPath();
+        contenido.scale(1,-1);
+        for(var i = 0; i < array.length; i++){
+            contenido.fillRect(x + (w + sep) * i,-y,w,(array[i] * 10));
+        }
         contenido.stroke();
+        
     }
 }
