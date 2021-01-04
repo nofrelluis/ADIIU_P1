@@ -43,6 +43,7 @@ public class DBActionsNameBasics {
             res = res + "]}";
         } catch (Exception ex) {
             ex.printStackTrace();
+            return(ex.toString());
         } finally {
             con.close();
         }
@@ -74,6 +75,7 @@ public class DBActionsNameBasics {
             res = res + canti + "}";
         } catch (Exception ex) {
             ex.printStackTrace();
+            return(ex.toString());
         } finally {
             con.close();
         }
@@ -107,6 +109,7 @@ public class DBActionsNameBasics {
             res = res + canti + "}";
         } catch (Exception ex) {
             ex.printStackTrace();
+            return(ex.toString());
         } finally {
             con.close();
         }

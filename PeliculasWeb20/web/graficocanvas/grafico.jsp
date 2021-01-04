@@ -12,6 +12,8 @@
         <title>Dibujo con Canvas por Untitled.es</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
         </script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/maps/modules/map.js"></script>
         <script type="text/javascript" charset="utf-8" src="puntosporidioma_1.js">
         </script>
     </head>
@@ -27,6 +29,12 @@
             lloc = lloc + "/capcalera.jsp";
         %>
         <jsp:include page="<%= lloc%>"/>
-        <canvas id="canvas" style="margin-left:10%" width="870" height="522"></canvas>  
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+            <p class="highcharts-description">
+                
+            </p>
+        </figure>
+        <%--canvas id="canvas" style="margin-left:10%" width="870" height="522"></canvas--%>  
     </body>
 </html>
