@@ -5,55 +5,64 @@ function dibujacion() {
 function createTable()
 {
     var contador = 0;
+    
+    
+    
+    var edad = sessionStorage.getItem("Edades");
+    if(edad != null){
+        edad = JSON.parse("[" + edad + "]");
+        pintarTorta(edad);
+    } else {
     var edad = [0,0,0,0];
+        
+        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=0-19",
+            success: function (result) {
+                console.log(result);
+                res = JSON.parse(result);
+                edad[0] = res.cantidadporfranja;
+                contador++;
+                if (contador == 4) {
+                    sessionStorage.setItem("Edades", edad);
+                    pintarTorta(edad);
+                }
+            }});
+        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=20-40",
+            success: function (result) {
+                console.log(result);
+                res = JSON.parse(result);
+                edad[1] = res.cantidadporfranja;
+                contador++;
+                if (contador == 4) {
+                    sessionStorage.setItem("Edades", edad);
+                    pintarTorta(edad);
+                }
+            }});
+        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=41-60",
+            success: function (result) {
+                console.log(result);
+                res = JSON.parse(result);
+                edad[2] = res.cantidadporfranja;
+                contador++;
+                if (contador == 4) {
+                    sessionStorage.setItem("Edades", edad);
+                    pintarTorta(edad);
+                }
+            }});
+        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=61-1500",
+            success: function (result) {
+                console.log(result);
+                res = JSON.parse(result);
+                edad[3] = res.cantidadporfranja;
+                contador++;
+                if (contador == 4) {
+                    sessionStorage.setItem("Edades", edad);
+                    pintarTorta(edad);
+                }
+            }});
     
-    $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=0-19",
-        success: function (result) {
-            console.log(result);
-            res = JSON.parse(result);
-            edad[0] = res.cantidadporfranja;
-            contador++;
-            if (contador == 4) {
-                pintarTorta(edad);
-            }
-        }});
-    $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=20-40",
-        success: function (result) {
-            console.log(result);
-            res = JSON.parse(result);
-            edad[1] = res.cantidadporfranja;
-            contador++;
-            if (contador == 4) {
-                pintarTorta(edad);
-            }
-        }});
-    $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=41-60",
-        success: function (result) {
-            console.log(result);
-            res = JSON.parse(result);
-            edad[2] = res.cantidadporfranja;
-            contador++;
-            if (contador == 4) {
-                pintarTorta(edad);
-            }
-        }});
-    $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=61-1500",
-        success: function (result) {
-            console.log(result);
-            res = JSON.parse(result);
-            edad[3] = res.cantidadporfranja;
-            contador++;
-            if (contador == 4) {
-                pintarTorta(edad);
-            }
-        }});
+        
+    }
     
-    $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=todosporedad&par=30",
-        success: function (result) {
-            console.log(result);
-            res = JSON.parse(result);
-            pintarBarras(res);
-        }});
     
 
 
@@ -105,6 +114,17 @@ function createTable()
                     }]
             }]
         });
+        /*
+        var a = edad.toString();
+        console.log(a);
+        console.log(parse)*/
+        
+        /*$.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=todosporedad&par=30",
+        success: function (result) {
+            console.log(result);
+            res = JSON.parse(result);
+            pintarBarras(res);
+        }});*/
     }
     
     function pintarBarras(actores){

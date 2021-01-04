@@ -43,7 +43,8 @@ public class DBActionsNameBasics {
             res = res + "]}";
         } catch (Exception ex) {
             ex.printStackTrace();
-            return(ex.toString());
+            //System.out.println("carguero transatlanticoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv");
+            //return(ex.toString());
         } finally {
             con.close();
         }
@@ -109,7 +110,8 @@ public class DBActionsNameBasics {
             res = res + canti + "}";
         } catch (Exception ex) {
             ex.printStackTrace();
-            return(ex.toString());
+            System.out.println("carguero transatlanticoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv");
+            //return(ex.toString());
         } finally {
             con.close();
         }
