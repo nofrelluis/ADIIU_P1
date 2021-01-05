@@ -1,6 +1,9 @@
 function dibujacion() {
     createTable();
+    Mapa();
 }
+
+//SELECT * FROM `ratingpelis` ORDER BY `ratio` DESC , `votes` DESC ordenar por puntuaciony votos.
 
 function createTable()
 {
@@ -64,11 +67,26 @@ function createTable()
     }
     
     
+    var peliculas = sessionStorage.getItem("Peliculas");
+    if(peliculas != null){
+        console.log(peliculas);
+        peliculas = JSON.parse(peliculas)
+        pintarHighchart(peliculas);
+    } else {
+    
+        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=todosporedad&par=30",
+        success: function (result) {
+            console.log(result);
+            res = JSON.parse(result);
+            pintarBarras(res);
+        }});
+    }
+    
 
 
     function pintarTorta(data) {
         console.log(data);
-        Highcharts.chart('container', {
+        Highcharts.chart('graficoEdad', {
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
@@ -114,12 +132,8 @@ function createTable()
                     }]
             }]
         });
-        /*
-        var a = edad.toString();
-        console.log(a);
-        console.log(parse)*/
-        
-        /*$.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=todosporedad&par=30",
+                /*
+        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=todosporedad&par=30",
         success: function (result) {
             console.log(result);
             res = JSON.parse(result);
@@ -148,6 +162,7 @@ function createTable()
                     data.push(res);                    
                     num++;
                     if(num === cantidad){
+                        sessionStorage.setItem("Peliculas",JSON.stringify(data));
                         pintarHighchart(data);
                     }
                 }});
@@ -167,7 +182,7 @@ function createTable()
             console.log(w);
             console.log(names[w]);
         }
-        Highcharts.chart('container', {
+        Highcharts.chart('graficoPeliculas', {
         chart: {
             type: 'column'
         },
@@ -186,7 +201,7 @@ function createTable()
         yAxis: {
             min: 0,
             title: {
-                text: 'Population',
+                text: 'Número de peliculas',
                 align: 'high'
             },
             labels: {
@@ -210,4 +225,88 @@ function createTable()
                 data: valores }]
     });
     }
+}
+
+function Mapa(){
+    
+    var mapas= sessionStorage.getItem("Mapas");
+    //mapas = null;
+    if(mapas != null){
+        console.log(mapas);
+        mapas = JSON.parse(mapas);
+        pintarMapa(mapas);
+    } else {
+    
+        var contador= 0;
+        var ciudades = ["London-gb","Madrid-es","Paris-fr","Rome-it"];
+        var ciutat= [];
+        for (var i = 0; i < ciudades.length; i++){
+        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=gpspoblacion&par="+ciudades[i],
+            success: function (result) {
+
+                res = JSON.parse(result);
+                console.log(res);
+                ciutat.push(res);
+                contador++;
+                if (contador == ciudades.length) {
+                    sessionStorage.setItem("Mapas", JSON.stringify(ciutat));
+                    pintarMapa(ciutat);
+                }
+            }});
+        }
+    }
+}
+
+function pintarMapa(data){
+    var datos = [];
+     
+    var punto = "{\"name\": \"Basemap\", \"borderColor\": \"#A0A0A0\",\"nullColor\": \"rgba(200, 200, 200, 0.3)\",\"showInLegend\": false}";   
+        datos.push(JSON.parse(punto));
+    punto = "{\"name\": \"Separators\", \"type\": \"mapline\",\"nullColor\": \"#707070\",\"showInLegend\": false,\"enableMouseTracking\": false}";   
+    datos.push(JSON.parse(punto));
+        
+    for (var i= 0; i < data.length; i++){
+        console.log(i);
+        punto = "{\"type\": \"mappoint\", \"name\": \""+data[i].name+"\", \"color\": \"green\", \"data\":["+JSON.stringify(data[i])+"]}";   
+        datos.push(JSON.parse(punto));
+       
+    }
+    console.log(datos);
+    Highcharts.mapChart('mapa', {
+
+    chart: {
+        map: 'custom/europe'
+    },
+
+    title: {
+        text: 'Highmaps basic lat/lon demo'
+    },
+
+    mapNavigation: {
+        enabled: true
+    },
+
+    tooltip: {
+        headerFormat: '',
+        pointFormat: '<b>{point.name}</b><br>Lat: {point.lat}, Lon: {point.lon}'
+    },
+    legend: {
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -100,
+                    y: 70,
+                    floating: true,
+                    layout: 'vertical',
+                    valueDecimals: 0,
+                    backgroundColor: ( // theme
+                        Highcharts.defaultOptions &&
+                        Highcharts.defaultOptions.legend &&
+                        Highcharts.defaultOptions.legend.backgroundColor
+                    ) || 'rgba(255, 255, 255, 0.85)'
+                },
+    
+    series: datos
+    
+});
+
 }

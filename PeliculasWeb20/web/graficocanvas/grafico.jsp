@@ -10,10 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Dibujo con Canvas por Untitled.es</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="http://code.highcharts.com/highcharts.js"></script>
         <script src="http://code.highcharts.com/maps/modules/map.js"></script>
+        <script src="https://code.highcharts.com/mapdata/custom/europe.js"></script>
         <script type="text/javascript" charset="utf-8" src="puntosporidioma_1.js">
         </script>
     </head>
@@ -30,7 +32,9 @@
         %>
         <jsp:include page="<%= lloc%>"/>
         <figure class="highcharts-figure">
-            <div id="container"></div>
+            <div id="graficoEdad"></div>
+            <div id="graficoPeliculas"></div>
+            <div id="mapa"></div>
             <p class="highcharts-description">
                 
             </p>
