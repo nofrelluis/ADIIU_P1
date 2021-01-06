@@ -121,7 +121,7 @@ public class bdpeliculas extends HttpServlet {
             res = dbap.getGPSPoblacion(par);
         } else if (operacion.contentEquals("getuseraccess")) {
             DBActionsUsers dbau = new DBActionsUsers();
-            res = dbau.getUserAccess(par);
+            res = dbau.getUserAccess(par)+"";
         }
         return res;
     }

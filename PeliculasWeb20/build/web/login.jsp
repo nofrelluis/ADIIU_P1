@@ -9,14 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="loginAction.js"></script>
         <title>JSP Page</title>
     </head>
     <body>
-         <%
-            session.setAttribute("user", "miquel");
-            session.setAttribute("pass", "patata");
-            session.setAttribute("level", "1");
-        %>
+        
+         <form method= "get" action="loginAction.jsp">
+            <label for="fname">Usuario:</label>
+            <input type="text" id="usuario" name="usuario"><br><br>
+            <label for="lname">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena"><br><br>
+            <input type="submit" value="Submit">
+          </form> 
         <h1>Ja tens accés per tot!</h1>
     </body>
 </html>

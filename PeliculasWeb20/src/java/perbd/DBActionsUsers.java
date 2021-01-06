@@ -15,22 +15,22 @@ import java.util.Calendar;
  */
 public class DBActionsUsers {
 
-    public String getUserAccess(String par) {
+    public int getUserAccess(String par) {
         DBConnection con = new DBConnection();
-        String res = "{'getuseraccess':";
+        int res = -1;
         String user = par.substring(0, par.indexOf("-"));
         String passwd = par.substring(par.indexOf("-") + 1);
         try {
             con.open();
             Statement st = con.getConection().createStatement();
-            String sql = "select * from usuarios where ((user='" + user + "')and(passwd='" + passwd + "'));";
+            String sql = "select * from usuarios where ((user='" + user + "')and(pass='" + passwd + "'));";
             ResultSet rs = st.executeQuery(sql);
             String aux;
             int nivel = -1;
             if (rs.next()) {
-                nivel = rs.getInt("nivel");  
+                nivel = rs.getInt("permisos");  
             }
-            res = res + "{'nivel':" + nivel + "}}";
+            res = nivel;
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
