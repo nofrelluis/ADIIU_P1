@@ -80,12 +80,12 @@
                 if ((user == null) || (pass == null)) {
                     out.println(s + "    " + servletlloc);
                     response.setStatus(response.SC_MOVED_TEMPORARILY);
-                    response.setHeader("Location", request.getContextPath() + "/index.jsp");
+                    response.setHeader("Location", request.getContextPath());
                 } else {
                     String level = (String) session.getAttribute("level");
-                    if (Integer.parseInt(level) > 1) {
+                    if (Integer.parseInt(level) < 1) {
                         response.setStatus(response.SC_MOVED_TEMPORARILY);
-                        response.setHeader("Location", request.getContextPath() + "/index.jsp");
+                        response.setHeader("Location", request.getContextPath());
                     }
                 }
             }
