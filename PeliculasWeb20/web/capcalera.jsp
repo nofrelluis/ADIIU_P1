@@ -70,6 +70,26 @@
         </style>
     </head>
     <body>
+        <%
+            // Si es una página de la intranet y no permiso redirecciona al inicio
+            String s = request.getRequestURI();
+            String servletlloc = request.getContextPath();
+            if (s.startsWith(servletlloc + "/privada.jsp")) {
+                String user = (String) session.getAttribute("user");
+                String pass = (String) session.getAttribute("pass");
+                if ((user == null) || (pass == null)) {
+                    out.println(s + "    " + servletlloc);
+                    response.setStatus(response.SC_MOVED_TEMPORARILY);
+                    response.setHeader("Location", request.getContextPath() + "/index.jsp");
+                } else {
+                    String level = (String) session.getAttribute("level");
+                    if (Integer.parseInt(level) > 1) {
+                        response.setStatus(response.SC_MOVED_TEMPORARILY);
+                        response.setHeader("Location", request.getContextPath() + "/index.jsp");
+                    }
+                }
+            }
+        %>
         <div class="header">
             <a href="<%= request.getContextPath() %>" class="logo">
                 <img alt="Company Logo" src="<%= request.getContextPath() %>/imatges/logo.jpeg" width="100%" height="30%">
@@ -78,6 +98,8 @@
                 <a class="active" href="<%= request.getContextPath() %>">Home</a>
                 <a href="<%= request.getContextPath() %>/contact.jsp">Contact</a>
                 <a href="<%= request.getContextPath() %>/about.jsp">About</a>
+                <a href="<%= request.getContextPath() %>/login.jsp">Login</a>
+                <a href="<%= request.getContextPath() %>/privada.jsp">Privada</a>
             </div>
         </div>
 
