@@ -178,7 +178,7 @@ function createTable()
         var valores = [];
         for (w in data) {
             names.push(data[w].name);
-            valores.push(data[w].data[0]);
+            valores.push(data[w].y);
             console.log(w);
             console.log(names[w]);
         }

@@ -57,7 +57,9 @@ public class DBActionsPersonaPeli {
     
     public String getNumPelisDePersona(String par) {
         DBConnection con = new DBConnection();
-        String res = "{\"name\":\""+ par.replace("_", " ") +"\", \"data\": ["; //[";
+        String res = "{\"name\":\""+ par.replace("_", " ") +"\", \"y\": "; //[";
+        
+        //return res + 276 + "}";
         try {
             con.open();
             Statement st1, st2; //, st3;
@@ -77,7 +79,9 @@ public class DBActionsPersonaPeli {
                 sqlq = "select count(*) as total from personapeli where nconst like '" + codnom + "';";
                 ResultSet rs2 = st2.executeQuery(sqlq);
                 rs2.next();
-                res = res + rs2.getInt(1) + "]}";
+                res = res + rs2.getInt(1) + "}";
+            } else {
+                res = "-1";
             }
             
         } catch (Exception ex) {
