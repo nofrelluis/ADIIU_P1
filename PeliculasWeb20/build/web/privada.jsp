@@ -54,13 +54,25 @@
             <input type="text" id="actor" name="actor"><br><br>
             <input type="submit" value="Submit">
           </form> 
+    
+        <br/>
+        <label>Nom: </label> 
+        <label id = "name"></label> 
+        <br/>
+        <label>Naixement: </label> 
+        <label id = "birth"></label> 
+        <br/>
+        <label>Defunció: </label> 
+        <label id = "death"></label> 
+        <br/>
+        <label>Nº pel·licules: </label> 
+        <label id = "nPelis"></label> 
+    
         <figure class="highcharts-figure">
             <div id="graficoNumPeliculas"></div>
                 
             </p>
         </figure>
-    
-    
     
         <br/>
         <p id="param"></p>
@@ -76,9 +88,6 @@
                 <li><a onclick="buscar('John Belushi');return false;">John Belushi</a></li>
                 <li><a onclick="buscar('Max Perlich');return false;">Max Perlich</a></li>
                 <li><a onclick="buscar('Barry Pepper');return false;">Barry Pepper</a></li>
-                <li><a onclick="buscarActor(\"\");return false;">tercer UIB</a></li>
-                <li><a onclick="buscarActor(\"\");return false;">quart UIB</a></li>
-                <li><a onclick="buscarActor(\"\");return false;">paràmetre</a></li>
             </ul>
         </div>
     </body>

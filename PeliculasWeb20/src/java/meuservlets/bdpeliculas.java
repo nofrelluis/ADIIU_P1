@@ -122,6 +122,9 @@ public class bdpeliculas extends HttpServlet {
         } else if (operacion.contentEquals("getuseraccess")) {
             DBActionsUsers dbau = new DBActionsUsers();
             res = dbau.getUserAccess(par)+"";
+        } else if (operacion.contentEquals("getdatospersona")) {
+            DBActionsNameBasics dbau = new DBActionsNameBasics();
+            res = dbau.getDatosPersona(par)+"";
         }
         return res;
     }

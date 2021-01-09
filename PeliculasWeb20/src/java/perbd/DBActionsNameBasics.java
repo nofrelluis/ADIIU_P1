@@ -110,8 +110,46 @@ public class DBActionsNameBasics {
             res = res + canti + "}";
         } catch (Exception ex) {
             ex.printStackTrace();
-            System.out.println("carguero transatlanticoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv");
-            //return(ex.toString());
+        } finally {
+            con.close();
+        }
+        return res;
+    }
+    
+    public String getDatosPersona(String par) {
+        DBConnection con = new DBConnection();
+        String res = "{\"name\":\""+ par.replace("_", " ") + "\", "; //[";
+        
+        //return res + 276 + "}";
+        try {
+            con.open();
+            Statement st1, st2; //, st3;
+            st1 = con.getConection().createStatement();
+            st2 = con.getConection().createStatement();
+                
+            String sqlq = "select * from namebasics where primaryname like '" + par + "';";
+            ResultSet rs = st1.executeQuery(sqlq);
+            String codnom;
+            String birth;
+            String death;
+            
+            if (rs.next()) {
+                codnom = rs.getString("nconst");
+                birth = rs.getString("birthyear");
+                death = rs.getString("deathyear");
+                res = res + "\"birth\": " + birth + ", \"death\": " + death;
+                
+                sqlq = "select count(*) as total from personapeli where nconst like '" + codnom + "';";
+                ResultSet rs2 = st2.executeQuery(sqlq);
+                rs2.next();
+                res = res + ", \"nMovies\": "+ rs2.getInt(1) + "}";
+            } else {
+                res = "-1";
+            }
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return(ex.toString());
         } finally {
             con.close();
         }

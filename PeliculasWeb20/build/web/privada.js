@@ -21,16 +21,36 @@ function buscarActor(){
     buscar(actor);
 }
 
+function isIn(actor){
+    for (var i = 0; i < actores.length; i++) {
+        if(actores[i].name == actor){
+            imprimirDatos(actores[i]);
+            return true;
+        }
+    }
+    return false;
+}
+
+function imprimirDatos(actor){
+            var n;
+            document.getElementById("name").innerHTML = actor.name;
+            document.getElementById("birth").innerHTML = actor.birth;
+            document.getElementById("nPelis").innerHTML = actor.nMovies;
+            if(actor.death == -1) n = "-"; 
+            else n = actor.death;
+            document.getElementById("death").innerHTML = n;    
+}
+
 function buscar(actor){
-    if(actores.indexOf(actor)==-1){
+    if(!isIn(actor)){
         console.log("buscando");
         actor.replace(" ", "_");
-        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=numpelisdepersona&par="+actor,
+        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=getdatospersona&par="+actor,
             success: function (result) {
                 console.log(result);
                 if(result != "-1"){
                     res = JSON.parse(result);
-                    actores.push(actor);
+                    actores.push(res);
                     sessionStorage.setItem("actores", JSON.stringify(actores));
 
                     var data = sessionStorage.getItem("numPelis");
@@ -39,11 +59,13 @@ function buscar(actor){
                     } else {
                         data = [];
                     }
-
-                    data.push(res);
+                    console.log(data);
+                    data.push(JSON.parse("{\"name\": \""+res.name + "\",\"y\": " + res.nMovies + "}"));
                     sessionStorage.setItem("numPelis",JSON.stringify(data));
                     pintarTorta(data);
-                    }
+                    
+                    imprimirDatos(res);
+                }
             }});
     }
 }
