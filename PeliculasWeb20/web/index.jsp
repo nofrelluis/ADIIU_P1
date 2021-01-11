@@ -22,7 +22,10 @@
             lloc = lloc + "/capcalera.jsp";
         %>
         <jsp:include page="<%= lloc%>"/>   
-
+        <br>
+        <br>
+        <br>
+        <br>
         <H1>
             &nbsp;&nbsp;&nbsp;&nbsp;<a href="graficocanvas/grafico.jsp">Ejemplo de gràfico en canvas de JavaScript </a>
             <br>

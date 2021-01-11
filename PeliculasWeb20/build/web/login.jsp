@@ -14,7 +14,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+        <br>
+        <br>
+        <br>
+        <br>
          <form method= "get" action="loginAction.jsp">
             <label for="fname">Usuario:</label>
             <input type="text" id="usuario" name="usuario"><br><br>

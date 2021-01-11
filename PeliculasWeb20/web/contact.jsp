@@ -22,7 +22,10 @@
             lloc = lloc + "/capcalera.jsp";
         %>
         <jsp:include page="<%= lloc%>"/>   
-
+        <br>
+        <br>
+        <br>
+        <br>
         <pre>
         <a href="mailto:mascport@uib.es">Contactar por mail</a> <br>
         Contactar por telefono 555555555 <br>

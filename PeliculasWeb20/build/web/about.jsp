@@ -22,7 +22,10 @@
             lloc = lloc + "/capcalera.jsp";
         %>
         <jsp:include page="<%= lloc%>"/>   
-
+        <br>
+        <br>
+        <br>
+        <br>
         <pre>
         Versión de día 07/11/2019 <br>
         Dirección: Miguel Mascaró Portells <br>
