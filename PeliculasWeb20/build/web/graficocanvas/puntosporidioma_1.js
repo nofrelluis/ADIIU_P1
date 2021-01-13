@@ -1,6 +1,6 @@
 function dibujacion() {
-    createTable();
     Mapa();
+    createTable();   
 }
 
 //SELECT * FROM `ratingpelis` ORDER BY `ratio` DESC , `votes` DESC ordenar por puntuaciony votos.
@@ -267,7 +267,7 @@ function pintarMapa(data){
         
     for (var i= 0; i < data.length; i++){
         console.log(i);
-        punto = "{\"type\": \"mappoint\", \"name\": \""+data[i].name+"\", \"color\": \"green\", \"data\":["+JSON.stringify(data[i])+"]}";   
+        punto = "{\"type\": \"mappoint\", \"name\": \""+data[i].name+"\",\"symbol\": \"circle\", \"color\": \"#222\", \"data\":["+JSON.stringify(data[i])+"]}";   
         datos.push(JSON.parse(punto));
        
     }

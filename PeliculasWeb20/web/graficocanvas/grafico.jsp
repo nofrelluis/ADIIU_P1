@@ -31,12 +31,10 @@
         %>
         <jsp:include page="<%= lloc%>"/>
         <figure class="highcharts-figure">
-            <div id="graficoEdad"></div>
-            <div id="graficoPeliculas"></div>
             <div id="mapa"></div>
-            <p class="highcharts-description">
-                
-            </p>
+            <div id="graficoEdad"></div>
+            <div id="graficoPeliculas"></div>            
+            <p class="highcharts-description"></p>
         </figure>
         <%--canvas id="canvas" style="margin-left:10%" width="870" height="522"></canvas--%>  
     </body>
