@@ -68,13 +68,13 @@
             <a class="tmapa">Mapa de Europa</a>
             <hr/>
             <div id="mapa"></div>
-            <a class="tEdad">Edat dels actors</a>
+            <a class="tEdad">Distribució d'edat dels actors</a>
             <hr/>
             <div id="graficoEdad"></div>
             <a class="tpelis">Nombre de pel·lícules</a>
             <hr/>
             <div id="graficoPeliculas"></div> 
-            <p class="highcharts-description"></p>
+            <p>A aquesta gràfica es mostren el nombre de pel·lícules en les que han participat cada un dels actors de la pel·lícula més ben valorada de la base de dades</p>
         </figure>
         <%--<H1>
             &nbsp;&nbsp;&nbsp;&nbsp;<a href="graficocanvas/grafico.jsp">Ejemplo de gràfico en canvas de JavaScript </a>

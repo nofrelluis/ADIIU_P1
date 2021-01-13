@@ -21,7 +21,7 @@ function createTable()
         $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=0-19",
             success: function (result) {
                 console.log(result);
-                res = JSON.parse(result);
+                var res = JSON.parse(result);
                 edad[0] = res.cantidadporfranja;
                 contador++;
                 if (contador == 4) {
@@ -32,7 +32,7 @@ function createTable()
         $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=20-40",
             success: function (result) {
                 console.log(result);
-                res = JSON.parse(result);
+                var res = JSON.parse(result);
                 edad[1] = res.cantidadporfranja;
                 contador++;
                 if (contador == 4) {
@@ -43,7 +43,7 @@ function createTable()
         $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=41-60",
             success: function (result) {
                 console.log(result);
-                res = JSON.parse(result);
+                var res = JSON.parse(result);
                 edad[2] = res.cantidadporfranja;
                 contador++;
                 if (contador == 4) {
@@ -54,7 +54,7 @@ function createTable()
         $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=cantidadporfranja&par=61-1500",
             success: function (result) {
                 console.log(result);
-                res = JSON.parse(result);
+                var res = JSON.parse(result);
                 edad[3] = res.cantidadporfranja;
                 contador++;
                 if (contador == 4) {
@@ -74,10 +74,10 @@ function createTable()
         pintarHighchart(peliculas);
     } else {
     
-        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=todosporedad&par=30",
+        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=getpersonaspopular",
         success: function (result) {
             console.log(result);
-            res = JSON.parse(result);
+            var res = JSON.parse(result);
             pintarBarras(res);
         }});
     }
@@ -118,16 +118,16 @@ function createTable()
                 name: 'Cantidad',
                 colorByPoint: true,
                 data: [{
-                        name: '0-19',
+                        name: '0-19 anys',
                         y: data[0],
                     }, {
-                        name: '20-40',
+                        name: '20-40 anys',
                         y: data[1]
                     }, {
-                        name: '41-60',
+                        name: '41-60 anys',
                         y: data[2]
-                    }, {
-                        name: '+60',
+                    }, { 
+                        name: '+60 anys',
                         y: data[3]
                     }]
             }]
@@ -149,15 +149,17 @@ function createTable()
         var num = 0;
         for(var i = 0; i < cantidad; i++){
             //contenido.beginPath();
-            var valor = actores.todosporedad[i].vals[0];
+            var valor = actores.personasdepeli[i].vals[1];
+            var nombre = actores.personasdepeli[i].vals[0].normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //Con esta funcion borramos las tildes y simbolos no soportados del nombre
             console.log(valor);
-            valor.replace(" ", "_")
+            //valor.replace(" ", "_")
             
-            var url = "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=numpelisdepersona&par=" + valor;
+            var url = "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=getnumpelisdepersonacodigo&par=" + valor + "," + nombre.replace(" ", "_");
             $.ajax({url: url,
                 success: function (result) {
                     console.log(result);
-                    res = JSON.parse(result);
+                    var res = JSON.parse(result);
+                    //var res = "{\"name\":\""+ actores.personasdepeli[i].vals[0] +"\", \"y\": " + aux.y + "}";
                     console.log(res);
                     data.push(res);                    
                     num++;

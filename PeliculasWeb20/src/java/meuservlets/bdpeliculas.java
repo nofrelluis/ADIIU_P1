@@ -125,6 +125,12 @@ public class bdpeliculas extends HttpServlet {
         } else if (operacion.contentEquals("getdatospersona")) {
             DBActionsNameBasics dbau = new DBActionsNameBasics();
             res = dbau.getDatosPersona(par)+"";
+        } else if (operacion.contentEquals("getpersonaspopular")) {
+            DBActionsPersonaPeli dbau = new DBActionsPersonaPeli();
+            res = dbau.getPersonasPopular()+"";
+        } else if (operacion.contentEquals("getnumpelisdepersonacodigo")) {
+            DBActionsPersonaPeli dbau = new DBActionsPersonaPeli();
+            res = dbau.getNumPelisDePersonaCodigo(par)+"";
         }
         return res;
     }

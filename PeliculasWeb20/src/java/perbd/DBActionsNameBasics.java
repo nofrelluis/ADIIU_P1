@@ -43,8 +43,6 @@ public class DBActionsNameBasics {
             res = res + "]}";
         } catch (Exception ex) {
             ex.printStackTrace();
-            //System.out.println("carguero transatlanticoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv\n dvjdkv");
-            //return(ex.toString());
         } finally {
             con.close();
         }
