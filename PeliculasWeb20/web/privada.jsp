@@ -85,9 +85,11 @@
 
         <div id="tags">
             <ul>
-                <li><a onclick="buscar('John Belushi');return false;">John Belushi</a></li>
-                <li><a onclick="buscar('Max Perlich');return false;">Max Perlich</a></li>
-                <li><a onclick="buscar('Barry Pepper');return false;">Barry Pepper</a></li>
+                <li><a onclick="buscar('Sigvaldi J. Karason');return false;">Sigvaldi J. Karason</a></li>
+                <li><a onclick="buscar('Magnus Scheving');return false;">Magnus Scheving</a></li>
+                <li><a onclick="buscar('Stefan Karl Stefansson');return false;">Stefan Karl Stefansson</a></li>
+                <li><a onclick="buscar('Bjorn Thors');return false;">Bjorn Thors</a></li>
+                <li><a onclick="buscar('Bergur Thor Ingolfsson');return false;">Bergur Thor Ingolfsson</a></li>
             </ul>
         </div>
     </body>

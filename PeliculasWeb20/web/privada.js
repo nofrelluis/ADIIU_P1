@@ -48,8 +48,8 @@ function buscar(actor){
         $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=getdatospersona&par="+actor,
             success: function (result) {
                 console.log(result);
-                if(result != "-1"){
-                    res = JSON.parse(result);
+                if(result != -1){
+                    var res = JSON.parse(result);
                     actores.push(res);
                     sessionStorage.setItem("actores", JSON.stringify(actores));
 
