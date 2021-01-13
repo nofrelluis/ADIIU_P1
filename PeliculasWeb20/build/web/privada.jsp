@@ -53,7 +53,7 @@
             <label for="actor">Actor</label>
             <input type="text" id="actor" name="actor"><br><br>
             <input type="submit" value="Submit">
-          </form> 
+        </form> 
     
         <br/>
         <label>Nom: </label> 
