@@ -39,7 +39,41 @@
                 $("#param").html(getParPerNom("persona"))
             });
         </script>
-        
+        <style>
+        * {box-sizing: border-box;}
+
+            body { 
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;                
+            }
+            
+            .fitxa{
+                position: fixed;               
+                border-radius: 15px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                width: 35%;
+                margin-left: 20px;
+            }
+            
+            .highcharts-figure{
+                width: 50%;
+                float: right;
+                margin-right: 20px;
+            }
+            
+            #myCanvas{
+                position: fixed;
+                width: 35%;
+                height:35%;
+                margin-left: 20px;
+                margin-top: 180px;
+                border-radius:15px;
+                float:right;
+                font-size: 1px;
+                background-color: #f2f2f2;
+            }
+        </style> 
         
         <title>JSP Page</title>
     </head>
@@ -49,25 +83,27 @@
         <cloud>
 
         </cloud>
-        <form method= "get" onsubmit="buscarActor(); return false;">
-            <label for="actor">Actor</label>
-            <input type="text" id="actor" name="actor"><br><br>
-            <input type="submit" value="Submit">
-          </form> 
-    
-        <br/>
-        <label>Nom: </label> 
-        <label id = "name"></label> 
-        <br/>
-        <label>Naixement: </label> 
-        <label id = "birth"></label> 
-        <br/>
-        <label>Defunció: </label> 
-        <label id = "death"></label> 
-        <br/>
-        <label>Nº pel·licules: </label> 
-        <label id = "nPelis"></label> 
-    
+            <form method= "get" onsubmit="buscarActor(); return false;" class="fitxa">
+                <label for="actor">Actor</label>
+                <input type="text" id="actor" name="actor"><br><br>
+                <input type="submit" value="Submit">
+                <br>
+                <div>
+                    <label>Nom: </label> 
+                    <label id = "name"></label> 
+                    <br/>
+                    <label>Naixement: </label> 
+                    <label id = "birth"></label> 
+                    <br/>
+                    <label>Defunció: </label> 
+                    <label id = "death"></label> 
+                    <br/>
+                    <label>Nº pel·licules: </label> 
+                    <label id = "nPelis"></label> 
+                </div>
+            </form> 
+
+    <br/>
         <figure class="highcharts-figure">
             <div id="graficoNumPeliculas"></div>
                 
@@ -78,7 +114,8 @@
         <p id="param"></p>
         <br/>
         <div id="myCanvasContainer">
-            <canvas width="300" height="300" id="myCanvas" style="background: url('imatges/fons.jpg')">
+            <%--<canvas width="300" height="300" id="myCanvas" style="background: url('imatges/fons.jpg')">--%>
+            <canvas  id="myCanvas" style="background: url('imatges/nico.jpeg');background-size: 470px 300px">  
                 <p>In Internet Explorer versions up to 8, things inside the canvas are inaccessible!</p>
             </canvas>
         </div>
