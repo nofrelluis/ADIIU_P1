@@ -29,6 +29,12 @@
                 color: #222;
             }
             
+            #mapa,#graficoEdad,#graficoPeliculas {
+                width:60%;
+                margin-left: 100px;
+                
+            }
+            
         </style>
     </head>
     <body onload="dibujacion()">
@@ -48,23 +54,7 @@
         <jsp:include page="<%= lloc%>"/>   
         
         <figure class="highcharts-figure">
-            
-        
-        <%--<div class="mapa">
-            <a class="tmapa">Mapa de Europa</a>
-            <br>
-            <a class="cmapa">Fotico mapa</a>
-        </div>
-        <div class="graficoEdad">
-            <a class="tedad">Grafica edat d'actors</a>
-            <br>
-            <a class="cedad">Gràfica edat</a>
-        </div>
-        <div class="graficoPeliculas">
-            <a class="tpelis">Nombre de pelis</a>
-            <br>
-            <a class="cpelis">Grafic pelis</a>
-        </div>--%>
+                   
             <a class="tmapa">Mapa de Europa</a>
             <hr/>
             <div id="mapa"></div>
@@ -73,8 +63,9 @@
             <div id="graficoEdad"></div>
             <a class="tpelis">Nombre de pel·lícules</a>
             <hr/>
+            <p>En aquesta gràfica es mostren el nombre de pel·lícules en les que han participat cada un dels actors de la pel·lícula més ben valorada de la base de dades</p>
             <div id="graficoPeliculas"></div> 
-            <p>A aquesta gràfica es mostren el nombre de pel·lícules en les que han participat cada un dels actors de la pel·lícula més ben valorada de la base de dades</p>
+            
         </figure>
         <%--<H1>
             &nbsp;&nbsp;&nbsp;&nbsp;<a href="graficocanvas/grafico.jsp">Ejemplo de gràfico en canvas de JavaScript </a>

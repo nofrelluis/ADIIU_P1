@@ -94,7 +94,7 @@ function createTable()
                 type: 'pie'
             },
             title: {
-                text: 'Edad'
+                text: null
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}</b>'
@@ -189,10 +189,10 @@ function createTable()
             type: 'column'
         },
         title: {
-            text: 'NumPeliculas'
+            text: null
         },
         subtitle: {
-            text: 'numero'
+            text: null
         },
         xAxis: {
             categories: names,
@@ -203,7 +203,7 @@ function createTable()
         yAxis: {
             min: 0,
             title: {
-                text: 'Número de peliculas',
+                text: 'Nombre de pel·lícules',
                 align: 'high'
             },
             labels: {
@@ -223,7 +223,7 @@ function createTable()
         credits: {
             enabled: false
         },
-        series: [{name: 'Numero pelis',
+        series: [{name: 'Actors',
                 data: valores }]
     });
     }
@@ -269,7 +269,7 @@ function pintarMapa(data){
         
     for (var i= 0; i < data.length; i++){
         console.log(i);
-        punto = "{\"type\": \"mappoint\", \"name\": \""+data[i].name+"\",\"symbol\": \"circle\", \"color\": \"#222\", \"data\":["+JSON.stringify(data[i])+"]}";   
+        punto = "{\"type\": \"mappoint\", \"name\": \""+data[i].name+"\",\"marker\": {\"symbol\": \"circle\"}, \"color\": \"#222\", \"data\":["+JSON.stringify(data[i])+"]}";   
         datos.push(JSON.parse(punto));
        
     }
@@ -281,11 +281,11 @@ function pintarMapa(data){
     },
 
     title: {
-        text: 'Highmaps basic lat/lon demo'
+        text: null
     },
 
     mapNavigation: {
-        enabled: true
+        enabled: false
     },
 
     tooltip: {
@@ -295,7 +295,7 @@ function pintarMapa(data){
     legend: {
                     align: 'right',
                     verticalAlign: 'top',
-                    x: -100,
+                    x: -50,
                     y: 70,
                     floating: true,
                     layout: 'vertical',

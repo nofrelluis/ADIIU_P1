@@ -10,6 +10,52 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Portal de películas</title>
+        <style>
+        * {box-sizing: border-box;}
+
+            body { 
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;                
+            }
+            
+            .info{
+                position: fixed;               
+                border-radius: 15px;
+                background-color: #f2f2f2;
+                font-size: 20px;
+                padding: 20px;
+                width: 35%;                
+                padding-bottom: 100px;
+            }
+            
+            #Nofre{
+                margin-left: 90px;
+            }
+            
+            #Juan{
+                left:100%;
+                margin-left: -540px;
+            }
+            
+            .info a.icon {
+                position: absolute;
+                width: 100px;
+                top: 55px;
+                left: 70px;
+            }
+            
+            .info a.mail {
+                position: absolute;
+                top:70px;
+                left: 130px;
+            }
+            
+            #text{
+                padding: 20px;
+                font-size: 22px;
+                color: #222;
+            }
+        </style>    
     </head>
     <body>
         <%
@@ -25,11 +71,23 @@
         <br>
         <br>
         <br>
+        <br> 
         <br>
-        <pre>
-        <a href="mailto:mascport@uib.es">Contactar por mail</a> <br>
-        Contactar por telefono 555555555 <br>
-        Contactar por tweeter #uibfilms
-        </pre>
+        <div class="info" id="Nofre">
+            Nofre Lluis Bibiloni clar
+            <br/>
+            <a href="<%= request.getContextPath() %>" class="icon">
+                <img alt="email" src="<%= request.getContextPath() %>/imatges/mail.png" width="50%">
+            </a>
+            <a class="mail">nofrelluis@gmail.com</a>    
+        </div>
+        <div class="info" id="Juan">
+            Juan Jorquera Riera
+            <br/>
+            <a href="<%= request.getContextPath() %>" class="icon">
+                <img alt="email" src="<%= request.getContextPath() %>/imatges/mail.png" width="50%">
+            </a>
+            <a class="mail">juanjorquerariera@gmail.com</a>           
+        </div>
     </body>
 </html>
