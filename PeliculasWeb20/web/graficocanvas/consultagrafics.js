@@ -240,7 +240,10 @@ function Mapa(){
     } else {
     
         var contador= 0;
-        var ciudades = ["London-gb","Madrid-es","Paris-fr","Rome-it"];
+        var ciudades = ["Tirana-al","Andorra la Vella-ad","Vienna-at","Minsk-by","Brussels-be","Sarajevo-ba","Sofia-bg","Zagreb-hr","Nicosia-cy",
+                        "Prague-cz","Copenhagen-dk","Tallin-ee","Helsinki-fi","Paris-fr","Berlin-de","Athens-gr","Budapest-hu","Reykjav?k-is","Dublin-ie","Rome-it",
+                        "Riga-lv","Vaduz-li","Luxembourg-lu","Chisinau-md","Monaco-mc","Podgorica-me","Amsterdam-nl","Skopje-mk","Oslo-no","Warsaw-pl","Lisbon-pt","Bucharest-ro",
+                        "Moscow-ru","San Marino-sm","Belgrade-rs","Bratislava-sk","Ljubljana-si","Madrid-es","Stockholm-se","Bern-ch","Ankara-tr","Kiev-ua","London-gb"];
         var ciutat= [];
         for (var i = 0; i < ciudades.length; i++){
         $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=gpspoblacion&par="+ciudades[i],
