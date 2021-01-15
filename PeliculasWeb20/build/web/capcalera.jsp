@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" charset="utf-8" src="loginAction.js"></script>
         <style>
             * {box-sizing: border-box;}
 
@@ -62,6 +63,8 @@
                 margin-right: 10px;
                 line-height: 48px;
             }
+            
+            
 
             @media screen and (max-width: 500px) {
                 .header a {
@@ -73,10 +76,11 @@
                 .header-right {                   
                     float: none;
                 }
+                
             }
         </style>
     </head>
-    <body>
+    <body onload="privada()">
         <%
             // Si es una página de la intranet y no permiso redirecciona al inicio
             String s = request.getRequestURI();
@@ -102,9 +106,8 @@
                 <img alt="Company Logo" src="<%= request.getContextPath() %>/imatges/logo.png" width="100%" height="40%">
             </a>
             <div class="header-right">
-                <a href="<%= request.getContextPath() %>/contact.jsp">Contact</a>
                 <a href="<%= request.getContextPath() %>/about.jsp">About</a>                
-                <a href="<%= request.getContextPath() %>/privada.jsp">Privada</a>
+                <a id="privada" href="<%= request.getContextPath() %>/privada.jsp">Privada</a>
                 <a href="<%= request.getContextPath() %>/login.jsp">Login</a>
             </div>
         </div>

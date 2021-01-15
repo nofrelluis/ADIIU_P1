@@ -15,7 +15,7 @@
         <script src="http://code.highcharts.com/highcharts.js"></script>
         <script src="http://code.highcharts.com/maps/modules/map.js"></script>
         <script src="https://code.highcharts.com/mapdata/custom/europe.js"></script>
-        <script type="text/javascript" charset="utf-8" src="graficocanvas/puntosporidioma_1.js"></script>
+        <script type="text/javascript" charset="utf-8" src="graficocanvas/consultagrafics.js"></script>
         <style>
             * {box-sizing: border-box;}
 
