@@ -1,19 +1,23 @@
-function dibujacion() {
+$(document).ready(function () {   
+    pintarEspera();
     Mapa();
-    createTable();   
+    Edad();
+    Pelis();
+});
+
+function pintarEspera() {
+    $('#mapa').append('<img src="imatges/espera.gif"/>');
+    $('#graficoEdad').append('<img src="imatges/espera.gif"/>');
+    $('#graficoPeliculas').append('<img src="imatges/espera.gif"/>');
 }
 
-//SELECT * FROM `ratingpelis` ORDER BY `ratio` DESC , `votes` DESC ordenar por puntuaciony votos.
-
-function createTable()
-{
+function Edad(){
     var contador = 0;
-    
-    
     
     var edad = sessionStorage.getItem("Edades");
     if(edad != null){
         edad = JSON.parse("[" + edad + "]");
+        $('#graficoEdad').empty();
         pintarTorta(edad);
     } else {
     var edad = [0,0,0,0];
@@ -26,6 +30,7 @@ function createTable()
                 contador++;
                 if (contador == 4) {
                     sessionStorage.setItem("Edades", edad);
+                    $('#graficoEdad').empty();
                     pintarTorta(edad);
                 }
             }});
@@ -37,6 +42,7 @@ function createTable()
                 contador++;
                 if (contador == 4) {
                     sessionStorage.setItem("Edades", edad);
+                    $('#graficoEdad').empty();
                     pintarTorta(edad);
                 }
             }});
@@ -48,6 +54,7 @@ function createTable()
                 contador++;
                 if (contador == 4) {
                     sessionStorage.setItem("Edades", edad);
+                    $('#graficoEdad').empty();
                     pintarTorta(edad);
                 }
             }});
@@ -59,21 +66,72 @@ function createTable()
                 contador++;
                 if (contador == 4) {
                     sessionStorage.setItem("Edades", edad);
+                    $('#graficoEdad').empty();
                     pintarTorta(edad);
                 }
-            }});
-    
-        
+            }});     
     }
-    
-    
+}
+
+function pintarTorta(data) {
+    console.log(data);
+    Highcharts.chart('graficoEdad', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: null
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.y}</b>'
+        },
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            name: 'Cantidad',
+            colorByPoint: true,
+            data: [{
+                    name: '0-19 anys',
+                    y: data[0],
+                }, {
+                    name: '20-40 anys',
+                    y: data[1]
+                }, {
+                    name: '41-60 anys',
+                    y: data[2]
+                }, { 
+                    name: '+60 anys',
+                    y: data[3]
+                }]
+        }]
+    });
+}
+
+function Pelis(){
     var peliculas = sessionStorage.getItem("Peliculas");
     if(peliculas != null){
         console.log(peliculas);
+        $('#graficoPeliculas').empty();
         peliculas = JSON.parse(peliculas)
         pintarHighchart(peliculas);
     } else {
-    
+
         $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=getpersonaspopular",
         success: function (result) {
             console.log(result);
@@ -81,71 +139,13 @@ function createTable()
             pintarBarras(res);
         }});
     }
+}
     
-
-
-    function pintarTorta(data) {
-        console.log(data);
-        Highcharts.chart('graficoEdad', {
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: 'pie'
-            },
-            title: {
-                text: null
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.y}</b>'
-            },
-            accessibility: {
-                point: {
-                    valueSuffix: '%'
-                }
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                    }
-                }
-            },
-            series: [{
-                name: 'Cantidad',
-                colorByPoint: true,
-                data: [{
-                        name: '0-19 anys',
-                        y: data[0],
-                    }, {
-                        name: '20-40 anys',
-                        y: data[1]
-                    }, {
-                        name: '41-60 anys',
-                        y: data[2]
-                    }, { 
-                        name: '+60 anys',
-                        y: data[3]
-                    }]
-            }]
-        });
-                /*
-        $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=todosporedad&par=30",
-        success: function (result) {
-            console.log(result);
-            res = JSON.parse(result);
-            pintarBarras(res);
-        }});*/
-    }
-    
-    function pintarBarras(actores){
+function pintarBarras(actores){
         var cantidad = 5;
         var data = [];
         console.log(actores);
-        
+
         var num = 0;
         for(var i = 0; i < cantidad; i++){
             //contenido.beginPath();
@@ -153,7 +153,7 @@ function createTable()
             var nombre = actores.personasdepeli[i].vals[0].normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //Con esta funcion borramos las tildes y simbolos no soportados del nombre
             console.log(valor);
             //valor.replace(" ", "_")
-            
+
             var url = "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=getnumpelisdepersonacodigo&par=" + valor + "," + nombre.replace(" ", "_");
             $.ajax({url: url,
                 success: function (result) {
@@ -165,16 +165,17 @@ function createTable()
                     num++;
                     if(num === cantidad){
                         sessionStorage.setItem("Peliculas",JSON.stringify(data));
+                        $('#graficoPeliculas').empty();
                         pintarHighchart(data);
                     }
                 }});
-            
-            
+
+
         }
-        
+
         //contenido.stroke();
     }
-    
+
     function pintarHighchart(data){
         var names = [];
         var valores = [];
@@ -226,7 +227,6 @@ function createTable()
         series: [{name: 'Actors',
                 data: valores }]
     });
-    }
 }
 
 function Mapa(){
@@ -235,6 +235,7 @@ function Mapa(){
     //mapas = null;
     if(mapas != null){
         console.log(mapas);
+        $('#mapa').empty();
         mapas = JSON.parse(mapas);
         pintarMapa(mapas);
     } else {
@@ -255,6 +256,7 @@ function Mapa(){
                 contador++;
                 if (contador == ciudades.length) {
                     sessionStorage.setItem("Mapas", JSON.stringify(ciutat));
+                    $('#mapa').empty();
                     pintarMapa(ciutat);
                 }
             }});
@@ -263,6 +265,7 @@ function Mapa(){
 }
 
 function pintarMapa(data){
+    
     var datos = [];
      
     var punto = "{\"name\": \"Basemap\", \"borderColor\": \"#A0A0A0\",\"nullColor\": \"rgba(200, 200, 200, 0.3)\",\"showInLegend\": false}";   
@@ -298,8 +301,8 @@ function pintarMapa(data){
     legend: {
                     align: 'right',
                     verticalAlign: 'top',
-                    x: -50,
-                    y: 70,
+                    x: -15,
+                    y: 0,
                     floating: true,
                     layout: 'vertical',
                     valueDecimals: 0,
@@ -313,5 +316,5 @@ function pintarMapa(data){
     series: datos
     
 });
-
+    
 }

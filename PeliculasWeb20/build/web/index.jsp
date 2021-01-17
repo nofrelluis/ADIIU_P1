@@ -37,7 +37,7 @@
             
         </style>
     </head>
-    <body onload="dibujacion()">
+    <body>
         <%
             String lloc = request.getServletContext().getContextPath();
             int num = lloc.length() - lloc.replaceAll("/", "").length();
@@ -57,13 +57,16 @@
                    
             <a class="tmapa">Mapa de Europa</a>
             <hr/>
+            <div id="gifmapa"></div>
             <div id="mapa"></div>
             <a class="tEdad">Distribució d'edat dels actors</a>
             <hr/>
+            <div id="gifedad"></div>
             <div id="graficoEdad"></div>
             <a class="tpelis">Nombre de pel·lícules</a>
             <hr/>
             <p>En aquesta gràfica es mostren el nombre de pel·lícules en les que han participat cada un dels actors de la pel·lícula més ben valorada de la base de dades</p>
+            <div id="gifpelis"></div>
             <div id="graficoPeliculas"></div> 
             
         </figure>

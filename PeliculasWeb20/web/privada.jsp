@@ -51,6 +51,7 @@
                 position: fixed;               
                 border-radius: 15px;
                 background-color: #f2f2f2;
+                top: 80px;
                 padding: 20px;
                 width: 35%;
                 margin-left: 20px;
@@ -73,41 +74,54 @@
                 font-size: 1px;
                 background-color: #f2f2f2;
             }
+            
+            #gifprivada{
+                position:fixed;
+                float: left;
+                width: 70%;
+                left:45%;
+                top: 10%;
+                z-index:3;
+            }
+            
+            .nuvol{
+                color: #222;
+            }
         </style> 
         
         <title>JSP Page</title>
     </head>
     <body onload="dibujar()">
         <%@include file="/capcalera.jsp"%>
-        <h1>Parte privada</h1>
+        <div id="gifprivada"></div>
         <cloud>
 
         </cloud>
-            <form method= "get" onsubmit="buscarActor(); return false;" class="fitxa">
-                <label for="actor">Actor</label>
-                <input type="text" id="actor" name="actor"><br><br>
-                <input type="submit" value="Submit">
-                <br>
-                <div>
-                    <label>Nom: </label> 
-                    <label id = "name"></label> 
-                    <br/>
-                    <label>Naixement: </label> 
-                    <label id = "birth"></label> 
-                    <br/>
-                    <label>Defunció: </label> 
-                    <label id = "death"></label> 
-                    <br/>
-                    <label>Nº pel·licules: </label> 
-                    <label id = "nPelis"></label> 
-                </div>
-            </form> 
+        <form method= "get" onsubmit="buscarActor(); return false;" class="fitxa">
+            <label for="actor">Actor</label>
+            <input type="text" id="actor" name="actor"><br><br>
+            <input type="submit" value="Submit">
+            <br>
+            <div>
+                <label>Nom: </label> 
+                <label id = "name"></label> 
+                <br/>
+                <label>Naixement: </label> 
+                <label id = "birth"></label> 
+                <br/>
+                <label>Defunció: </label> 
+                <label id = "death"></label> 
+                <br/>
+                <label>Nº pel·licules: </label> 
+                <label id = "nPelis"></label> 
+            </div>
+        </form> 
 
-    <br/>
+        <br/>
+        <br/>
+        <br/>
         <figure class="highcharts-figure">
             <div id="graficoNumPeliculas"></div>
-                
-            </p>
         </figure>
     
         <br/>
@@ -115,12 +129,12 @@
         <br/>
         <div id="myCanvasContainer">
             <%--<canvas width="300" height="300" id="myCanvas" style="background: url('imatges/fons.jpg')">--%>
-            <canvas  id="myCanvas" style="background: url('imatges/nico.jpeg');background-size: 470px 300px">  
+            <canvas  id="myCanvas" style="background-size: 470px 300px">  
                 <p>In Internet Explorer versions up to 8, things inside the canvas are inaccessible!</p>
             </canvas>
         </div>
 
-        <div id="tags">
+        <div class="nuvol" id="tags">
             <ul>
                 <li><a onclick="buscar('Sigvaldi J. Karason');return false;">Sigvaldi J. Karason</a></li>
                 <li><a onclick="buscar('Magnus Scheving');return false;">Magnus Scheving</a></li>

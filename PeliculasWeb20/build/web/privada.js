@@ -1,4 +1,7 @@
-var actores = []
+var actores = [];
+var gif=document.getElementById('#gifprivada');
+var gra=document.getElementById('#graficoNumPeliculas');
+
 
 function dibujar(){
     actores = sessionStorage.getItem("actores");
@@ -6,6 +9,7 @@ function dibujar(){
     console.log(data);
     if(data != null){
         data = JSON.parse(data);
+        //$('#gifprivada').empty();   
         pintarTorta(data);
     }
     console.log(actores);
@@ -42,7 +46,9 @@ function imprimirDatos(actor){
 }
 
 function buscar(actor){
+    //gif.style.display = "block";
     if(!isIn(actor)){
+        $('#gifprivada').append('<img src="imatges/espera.gif" width="80%"/>');
         console.log("buscando");
         actor.replace(" ", "_");
         $.ajax({url: "http://localhost:8080/PeliculasWeb20/bdpeliculas?op=getdatospersona&par="+actor,
@@ -62,6 +68,8 @@ function buscar(actor){
                     console.log(data);
                     data.push(JSON.parse("{\"name\": \""+res.name + "\",\"y\": " + res.nMovies + "}"));
                     sessionStorage.setItem("numPelis",JSON.stringify(data));
+                    $('#gifprivada').empty();
+                    console.log("ha buscado");
                     pintarTorta(data);
                     
                     imprimirDatos(res);
@@ -80,7 +88,7 @@ function pintarTorta(data) {
                 type: 'pie'
             },
             title: {
-                text: 'Edad'
+                text: null
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}</b>'
