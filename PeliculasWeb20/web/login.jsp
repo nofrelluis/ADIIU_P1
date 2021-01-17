@@ -75,11 +75,11 @@
         <br>
         <br>
          <form method= "get" action="loginAction.jsp" class="form">
-            <label for="fname">Usuario:</label>
-            <input type="text" id="usuario" name="usuario"><br><br>
-            <label for="lname">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena"><br><br>
-            <input type="submit" value="Submit">
+            <label for="fname">Usuari:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Introduïr nom d'Usuari"><br><br>
+            <label for="lname">Contrasenya:</label>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Introduïr contrasenya"><br><br>
+            <input type="submit" value="Iniciar sessió">
           </form> 
     </body>
 </html>
