@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Privada</title>
         <script type="text/javascript" charset="utf-8" src="privada.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="http://code.highcharts.com/highcharts.js"></script>
@@ -26,7 +27,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 if (!$('#myCanvas').tagcanvas({
-                    textColour: '#ff0000',
+                    textColour: '#222',
                     outlineThickness: 1,
                     outlineColour: '#000000',
                     maxSpeed: 0.03,

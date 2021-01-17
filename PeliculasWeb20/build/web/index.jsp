@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Portal de películas</title>
+        <title>Inici</title>
+        <%--<link rel="icon" src="imatges/minilogo.png">--%>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
         <script src="http://code.highcharts.com/highcharts.js"></script>
