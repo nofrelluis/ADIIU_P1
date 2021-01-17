@@ -136,12 +136,12 @@ function Pelis(){
         success: function (result) {
             console.log(result);
             var res = JSON.parse(result);
-            pintarBarras(res);
+            consultasActores(res);
         }});
     }
 }
     
-function pintarBarras(actores){
+function consultasActores(actores){
         var cantidad = 5;
         var data = [];
         console.log(actores);
