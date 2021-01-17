@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/dmiltim/NetBeansProjects/ADIIU_P1/PeliculasWeb20/web/graficocanvas/puntosporidioma_1.js</file>
-            <file>file:/home/dmiltim/NetBeansProjects/ADIIU_P1/PeliculasWeb20/web/capcalera.jsp</file>
-            <file>file:/home/dmiltim/NetBeansProjects/ADIIU_P1/PeliculasWeb20/web/about.jsp</file>
-            <file>file:/home/dmiltim/NetBeansProjects/ADIIU_P1/PeliculasWeb20/web/login.jsp</file>
-            <file>file:/home/dmiltim/NetBeansProjects/ADIIU_P1/PeliculasWeb20/web/index.jsp</file>
-            <file>file:/home/dmiltim/NetBeansProjects/ADIIU_P1/PeliculasWeb20/web/privada.jsp</file>
-            <file>file:/home/dmiltim/NetBeansProjects/ADIIU_P1/PeliculasWeb20/web/contact.jsp</file>
+            <file>file:/home/dmiltim/NetBeansProjects/ADIIU/ADIIU_P1/PeliculasWeb20/web/capcalera.jsp</file>
+            <file>file:/home/dmiltim/NetBeansProjects/ADIIU/ADIIU_P1/PeliculasWeb20/web/privada.js</file>
+            <file>file:/home/dmiltim/NetBeansProjects/ADIIU/ADIIU_P1/PeliculasWeb20/web/privada.jsp</file>
+            <file>file:/home/dmiltim/NetBeansProjects/ADIIU/ADIIU_P1/PeliculasWeb20/src/java/perbd/DBActionsNameBasics.java</file>
+            <file>file:/home/dmiltim/NetBeansProjects/ADIIU/ADIIU_P1/PeliculasWeb20/web/index.jsp</file>
+            <file>file:/home/dmiltim/NetBeansProjects/ADIIU/ADIIU_P1/PeliculasWeb20/src/java/meuservlets/bdpeliculas.java</file>
+            <file>file:/home/dmiltim/NetBeansProjects/ADIIU/ADIIU_P1/PeliculasWeb20/web/graficocanvas/consultagrafics.js</file>
+            <file>file:/home/dmiltim/NetBeansProjects/ADIIU/ADIIU_P1/PeliculasWeb20/src/java/perbd/DBActionsPersonaPeli.java</file>
         </group>
     </open-files>
 </project-private>
