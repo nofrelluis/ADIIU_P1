@@ -1,8 +1,3 @@
-<%-- 
-    Document   : capcalera
-    Created on : 06-nov-2019, 15:29:53
-    Author     : dsst
---%>
 
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

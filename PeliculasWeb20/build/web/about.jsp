@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 06-nov-2019, 15:18:30
-    Author     : dsst
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

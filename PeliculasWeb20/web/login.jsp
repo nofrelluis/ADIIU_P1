@@ -1,8 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : 06-ene-2021, 20:34:54
-    Author     : dmiltim
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

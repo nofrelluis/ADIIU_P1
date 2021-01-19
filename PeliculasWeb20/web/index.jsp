@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 06-nov-2019, 15:18:30
-    Author     : dsst
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +11,7 @@
         <script src="http://code.highcharts.com/highcharts.js"></script>
         <script src="http://code.highcharts.com/maps/modules/map.js"></script>
         <script src="https://code.highcharts.com/mapdata/custom/europe.js"></script>
-        <script type="text/javascript" charset="utf-8" src="graficocanvas/consultagrafics.js"></script>
+        <script type="text/javascript" charset="utf-8" src="consultagrafics.js"></script>
         <style>
             * {box-sizing: border-box;}
 

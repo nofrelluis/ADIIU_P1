@@ -1,8 +1,4 @@
-<%-- 
-    Document   : privada
-    Created on : 06-ene-2021, 20:37:59
-    Author     : dmiltim
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -48,6 +44,16 @@
                 font-family: Arial, Helvetica, sans-serif;                
             }
             
+            input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            
             .fitxa{
                 position: fixed;               
                 border-radius: 15px;
@@ -56,6 +62,10 @@
                 padding: 20px;
                 width: 35%;
                 margin-left: 20px;
+            }
+            
+            .fitxa label{
+                margin-top: 10px;
             }
             
             .highcharts-figure{
@@ -69,7 +79,7 @@
                 width: 35%;
                 height:35%;
                 margin-left: 20px;
-                margin-top: 180px;
+                margin-top: 260px;
                 border-radius:15px;
                 float:right;
                 font-size: 1px;
@@ -85,6 +95,21 @@
                 z-index:3;
             }
             
+            input[type=submit] {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
             .nuvol{
                 color: #222;
             }
